@@ -2,6 +2,7 @@ function mkrails {
 	MKRAILS_APP_NAME="."
 	MKRAILS_DATABASE_PROVIDER="postgresql"
 	MKRAILS_RAILS_VERSION="4.1.6"
+	MKRAILS_RECIPES="bdd"
 	MKRAILS_RUBY_VERSION="2.1.2"
 	MKRAILS_SOURCE="~/projects/mkrails"
 
@@ -19,6 +20,9 @@ function mkrails {
 			--rails-version)
 				MKRAILS_RAILS_VERSION=$VALUE
 				;;
+			--recipes)
+				MKRAILS_RECIPES=$VALUE
+				;;
 			--ruby-version)
 				MKRAILS_RUBY_VERSION=$VALUE
 				;;
@@ -33,6 +37,7 @@ function mkrails {
 	export MKRAILS_APP_NAME
 	export MKRAILS_DATABASE_PROVIDER
 	export MKRAILS_RAILS_VERSION
+	export MKRAILS_RECIPES
 	export MKRAILS_RUBY_VERSION
 	export MKRAILS_SOURCE
 
@@ -47,6 +52,7 @@ function mkrails {
 	unset MKRAILS_APP_NAME
 	unset MKRAILS_DATABASE_PROVIDER
 	unset MKRAILS_RAILS_VERSION
+	unset MKRAILS_RECIPES
 	unset MKRAILS_RUBY_VERSION
 	unset MKRAILS_SOURCE
 }
