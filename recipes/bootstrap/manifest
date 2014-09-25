@@ -1,5 +1,6 @@
-+ app/assets/stylesheets/application.css
 + app/assets/javascripts/application.js
+- app/assets/stylesheets/application.css
++ app/assets/stylesheets/application.css.less
 + app/helpers/bootstrap_helper.rb
-+ app/views/layouts/application.html.haml
 - app/views/layouts/application.html.erb
++ app/views/layouts/application.html.haml
