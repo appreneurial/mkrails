@@ -2,7 +2,7 @@ function mkrails {
 	MKRAILS_APP_NAME="."
 	MKRAILS_DATABASE_PROVIDER="postgresql"
 	MKRAILS_RAILS_VERSION="4.1.6"
-	MKRAILS_RECIPES="bdd,haml,bootstrap,font-awesome"
+	MKRAILS_RECIPES="bdd,haml,bootstrap,font-awesome,simple_form"
 	MKRAILS_RUBY_VERSION="2.1.2"
 	MKRAILS_SOURCE="~/projects/mkrails"
 
