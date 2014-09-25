@@ -1,0 +1,4 @@
+mkrails
+=======
+
+Rails Application Generator
