@@ -17,5 +17,9 @@
 		.container-fluid
 			= bootstrap_flash(dismissible: true)
 			= yield
+		%footer
+			.container-fluid
+				%p.pull-right
+					&copy; <%= Time.now.year %> #{ Time.now.year == <%= Time.now.year %> ? "" : "-#{Time.now.year}" } #{link_to "<%= ENV["MKRAILS_SITE_OWNER"] %>", "<%= ENV["MKRAILS_SITE_OWNER_URL"] %>", target: "_blank" }
 		/ Javascript
 		= javascript_include_tag 'application', 'data-turbolinks-track' => true

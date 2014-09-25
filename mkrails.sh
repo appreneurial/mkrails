@@ -4,6 +4,8 @@ function mkrails {
 	MKRAILS_RAILS_VERSION="4.1.6"
 	MKRAILS_RECIPES="bdd,haml,bootstrap,font-awesome,simple_form,devise,heroku,unicorn,better_errors,quiet_assets"
 	MKRAILS_RUBY_VERSION="2.1.2"
+	MKRAILS_SITE_OWNER="Jason Green"
+	MKRAILS_SITE_OWNER_URL="http://www.appreneurial.co"
 	MKRAILS_SOURCE="~/projects/mkrails"
 
 	while [[ "$1" != "" ]]; do
@@ -26,6 +28,12 @@ function mkrails {
 			--ruby-version)
 				MKRAILS_RUBY_VERSION=$VALUE
 				;;
+			--site-owner)
+				MKRAILS_SITE_OWNER=$VALUE
+				;;
+			--site-owner-url)
+				MKRAILS_SITE_OWNER_URL=$VALUE
+				;;
 			--source)
 				MKRAILS_SOURCE=$VALUE
 				;;
@@ -39,6 +47,8 @@ function mkrails {
 	export MKRAILS_RAILS_VERSION
 	export MKRAILS_RECIPES
 	export MKRAILS_RUBY_VERSION
+	export MKRAILS_SITE_OWNER
+	export MKRAILS_SITE_OWNER_URL
 	export MKRAILS_SOURCE
 
 	if [[ "$MKRAILS_APP_NAME" != "." ]]; then
@@ -54,5 +64,7 @@ function mkrails {
 	unset MKRAILS_RAILS_VERSION
 	unset MKRAILS_RECIPES
 	unset MKRAILS_RUBY_VERSION
+	unset MKRAILS_SITE_OWNER
+	unset MKRAILS_SITE_OWNER_URL
 	unset MKRAILS_SOURCE
 }
