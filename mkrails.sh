@@ -6,7 +6,7 @@ function mkrails {
 	MKRAILS_RUBY_VERSION="2.1.2"
 	MKRAILS_SITE_OWNER="Jason Green"
 	MKRAILS_SITE_OWNER_URL="http://www.appreneurial.co"
-	MKRAILS_SOURCE="~/projects/mkrails"
+	MKRAILS_SOURCE="https://raw.githubusercontent.com/appreneurial/mkrails/master"
 
 	while [[ "$1" != "" ]]; do
 		PARAM=`echo $1 | awk -F= '{print $1}'`
