@@ -58,3 +58,6 @@ gem 'font-awesome-rails', '~> 4.2.0.0'
 # Use Simple Form
 gem 'simple_form', '~> 3.1.0.rc0'
 gem 'country_select'
+
+# Use Devise
+gem 'devise', '~> 3.3.0'

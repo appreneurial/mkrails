@@ -1,0 +1,2 @@
++ app/controllers/application_controller.rb
++ config/routes.rb

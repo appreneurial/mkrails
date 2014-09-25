@@ -11,6 +11,7 @@
 			%script{src: "https://oss.maxcdn.com/respond/1.4.2/respond.min.js"}
 		= csrf_meta_tags
 	%body
+		= bootstrap_flash(dismissible: true)
 		= yield
 		/ Javascript
 		= javascript_include_tag 'application', 'data-turbolinks-track' => true
