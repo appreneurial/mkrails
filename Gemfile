@@ -65,3 +65,9 @@ gem 'devise', '~> 3.3.0'
 
 # Heroku Support
 gem 'rails_12factor', group: :production
+
+# Use Better Errors
+group :development do
+	gem 'better_errors'
+	gem 'binding_of_caller'
+end
