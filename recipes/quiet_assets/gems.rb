@@ -1,0 +1,1 @@
+gem 'quiet_assets', group: :development
