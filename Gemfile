@@ -44,3 +44,7 @@ group :development, :test do
 	gem 'capybara', '~> 2.4.0'
 	gem 'factory_girl_rails', '~> 4.4.0'
 end
+
+# Use Haml
+gem 'haml-rails', '~> 0.5.0'
+gem 'erb2haml', group: :development

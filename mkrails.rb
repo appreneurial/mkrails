@@ -14,4 +14,6 @@ run "rake db:create db:migrate"
 
 apply_recipes("initialize")
 
+apply_recipes("finalize")
+
 def run_bundle; end

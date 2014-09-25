@@ -1,0 +1,1 @@
+run "rake haml:replace_erbs"
