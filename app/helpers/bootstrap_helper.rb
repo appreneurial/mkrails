@@ -69,4 +69,10 @@ module BootstrapHelper
 
 		content_tag("li", link_to(text, destination, options), class: li_classes.join(" "))
 	end
+
+	def bootstrap_page_header(&block)
+		content_tag("div", nil, class: "page-header") do
+			capture(&block) if block_given?
+		end
+	end
 end

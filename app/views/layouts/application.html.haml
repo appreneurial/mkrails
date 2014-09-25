@@ -4,7 +4,30 @@
 		%meta{charset: "utf-8"}
 		%meta{"http-equiv" => "X-UA-Compatible", "content" => "IE=edge"}
 		%meta{name: "viewport", content: "width=device-width, initial-scale=1"}
-		%title <%= @app_name.titleize %>
+		%title= content_for?(:title) ? yield(:title) + " @ <%= @app_name.titleize %>" : "<%= @app_name.titleize %>"
+		- content_for(:social_title, content_for?(:title) ? yield(:title) : "<%= @app_name.titleize %>") unless content_for?(:social_title)
+		%meta{property: "og:title", content: yield(:social_title)}
+		%meta{name: "twitter:title", content: yield(:social_title)}
+		- if content_for?(:description)
+			%meta{name: "description", content: yield(:description)}
+			- content_for(:social_description, content_for?(:description) ? yield(:description) : nil) unless content_for?(:social_description)
+		- if content_for?(:social_description)
+			%meta{property: "og:description", content: yield(:social_description)}
+			%meta{name: "twitter:description", content: yield(:social_description)}
+		- if content_for?(:social_image)
+			%meta{property: "og:image", content: yield(:social_image)}
+			%meta{name: "twitter:image", content: yield(:social_image)}
+		- content_for(:social_url, request.url) unless content_for?(:social_url)
+		%meta{property: "og:url", content: yield(:social_url)}
+		%meta{name: "twitter:url", content: yield(:social_url)}
+		- if content_for?(:og_type)
+			%meta{property: "og:type", content: yield(:og_type)}
+		- if content_for?(:twitter_card)
+			%meta{name: "twitter:card", content: yield(:twitter_card)}
+		- if content_for?(:author)
+			%link{rel: "author", href: "https://plus.google.com/#{yield(:author)}"}
+		- if content_for?(:publisher)
+			%link{rel: "publisher", href: "https://plus.google.com/#{yield(:publisher)}"}
 		= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
 		/[if lt IE 9]
 			%script{src: "https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"}
@@ -16,6 +39,12 @@
 				= bootstrap_nav_link("Home", root_path, active: controller_name == "home")
 		.container-fluid
 			= bootstrap_flash(dismissible: true)
+			- if content_for?(:title)
+				= bootstrap_page_header do
+					%h1
+						= yield(:title)
+						- if content_for?(:subtitle)
+							%small= yield(:subtitle)
 			= yield
 		%footer
 			.container-fluid
