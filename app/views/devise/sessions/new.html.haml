@@ -1,0 +1,12 @@
+= bootstrap_row do
+	= bootstrap_column(size: {md: 4}, offset: {md: 4}) do
+		= bootstrap_page_header do
+			%h1 Log In
+		= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+			.form-inputs
+				= f.input :email, required: false, autofocus: true, label: "Your Email Address", placeholder: "Enter your email address"
+				= f.input :password, required: false, label: "Your Password", placeholder: "Enter your password"
+				= f.input :remember_me, as: :boolean, label: false, inline_label: "Remember me on this device" if devise_mapping.rememberable?
+			.form-actions
+				= f.button :submit, "Log In", class: "btn btn-primary btn-lg btn-block"
+		= render "devise/shared/links"

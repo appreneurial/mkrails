@@ -1,0 +1,1 @@
+gem 'devise', version: '~> 3.3.0'

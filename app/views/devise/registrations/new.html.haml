@@ -1,0 +1,13 @@
+= bootstrap_row do
+	= bootstrap_column(size: {md: 4}, offset: {md: 4}) do
+		= bootstrap_page_header do
+			%h1 Sign Up
+		= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+			= f.error_notification
+			.form-inputs
+				= f.input :email, required: true, autofocus: true, label: "Your Email Address", placeholder: "Enter your email address"
+				= f.input :password, required: true, label: "Your Password", placeholder: "Enter your password"
+				= f.input :password_confirmation, required: true, label: "Confirm Your Password", placeholder: "Enter your password again to confirm"
+			.form-actions
+				= f.button :submit, "Sign Up", class: "btn btn-primary btn-lg btn-block"
+		= render "devise/shared/links"
