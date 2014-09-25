@@ -75,4 +75,30 @@ module BootstrapHelper
 			capture(&block) if block_given?
 		end
 	end
+
+	def bootstrap_row(&block)
+		content_tag("div", nil, class: "row") do
+			capture(&block) if block_given?
+		end
+	end
+
+	def bootstrap_column(options = {}, &block)
+		div_classes = []
+		options[:size].each do |key, value|
+			div_classes << "col-#{key.to_s}-#{value}"
+		end if options[:size]
+		options[:offset].each do |key, value|
+			div_classes << "col-#{key.to_s}-offset-#{value}"
+		end if options[:offset]
+		options[:push].each do |key, value|
+			div_classes << "col-#{key.to_s}-push-#{value}"
+		end if options[:push]
+		options[:pull].each do |key, value|
+			div_classes << "col-#{key.to_s}-pull-#{value}"
+		end if options[:pull]
+
+		content_tag("div", nil, class: div_classes.join(" ")) do
+			capture(&block) if block_given?
+		end
+	end
 end
