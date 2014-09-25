@@ -1,0 +1,1 @@
+gem 'font-awesome-rails', version: '~> 4.2.0.0'

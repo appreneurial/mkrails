@@ -51,3 +51,6 @@ gem 'erb2haml', group: :development
 
 # Use Twitter Bootstrap
 gem 'less-rails-bootstrap', '~> 3.2.0'
+
+# Use Font Awesome
+gem 'font-awesome-rails', '~> 4.2.0.0'
