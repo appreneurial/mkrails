@@ -1,7 +1,8 @@
+- set_meta_data(title: "Change Your Password")
 = bootstrap_row do
   = bootstrap_column(size: {md: 4}, offset: {md: 4}) do
     = bootstrap_page_header do
-      %h1 Change Password
+      %h1 Change Your Password
     = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
       = f.error_notification
       = f.input :reset_password_token, as: :hidden
