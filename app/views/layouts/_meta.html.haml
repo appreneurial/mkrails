@@ -1,10 +1,10 @@
-%title= content_for?(:title) ? yield(:title) + " @ <%= @app_name.titleize %>" : "<%= @app_name.titleize %>"
-- content_for(:social_title, content_for?(:title) ? yield(:title) : "<%= @app_name.titleize %>") unless content_for?(:social_title)
+%title= content_for?(:meta_title) ? yield(:meta_title) + " @ <%= @app_name.titleize %>" : "<%= @app_name.titleize %>"
+- content_for(:social_title, content_for?(:meta_title) ? yield(:meta_title) : "<%= @app_name.titleize %>") unless content_for?(:social_title)
 %meta{property: "og:title", content: yield(:social_title)}
 %meta{name: "twitter:title", content: yield(:social_title)}
-- if content_for?(:description)
-	%meta{name: "description", content: yield(:description)}
-- content_for(:social_description, content_for?(:description) ? yield(:description) : nil) unless content_for?(:social_description)
+- if content_for?(:meta_description)
+	%meta{name: "description", content: yield(:meta_description)}
+	- content_for(:social_description, yield(:meta_description)) unless content_for?(:social_description)
 - if content_for?(:social_description)
 	%meta{property: "og:description", content: yield(:social_description)}
 	%meta{name: "twitter:description", content: yield(:social_description)}
@@ -18,7 +18,7 @@
 	%meta{property: "og:type", content: yield(:og_type)}
 - if content_for?(:twitter_card)
 	%meta{name: "twitter:card", content: yield(:twitter_card)}
-- if content_for?(:author)
-	%link{rel: "author", href: "https://plus.google.com/#{yield(:author)}"}
-- if content_for?(:publisher)
-	%link{rel: "publisher", href: "https://plus.google.com/#{yield(:publisher)}"}
+- if content_for?(:meta_author)
+	%link{rel: "author", href: "https://plus.google.com/#{yield(:meta_author)}"}
+- if content_for?(:meta_publisher)
+	%link{rel: "publisher", href: "https://plus.google.com/#{yield(:meta_publisher)}"}
