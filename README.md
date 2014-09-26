@@ -87,4 +87,6 @@ Specify the source for the *mkrails.rb* Ruby script and associated assets. This 
 
 ## Version History
 
+**1.1.0** *(26/09/2014)*: Improve handling of meta data, social tags and header content
+
 **1.0.0** *(25/09/2014)*: Initial release
