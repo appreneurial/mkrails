@@ -1,0 +1,7 @@
+= bootstrap_flash(dismissible: true)
+- if content_for?(:title)
+	= bootstrap_page_header do
+		%h1
+			= yield(:title)
+			- if content_for?(:subtitle)
+				%small= yield(:subtitle)

@@ -3,5 +3,9 @@
 + app/assets/stylesheets/application.css.less
 + app/helpers/application_helper.rb
 + app/helpers/bootstrap_helper.rb
++ app/views/layouts/_footer.html.haml
++ app/views/layouts/_header.html.haml
++ app/views/layouts/_meta.html.haml
++ app/views/layouts/_nav.html.haml
 - app/views/layouts/application.html.erb
 + app/views/layouts/application.html.haml
