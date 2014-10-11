@@ -47,6 +47,7 @@ module BootstrapHelper
 	def bootstrap_nav_link(text, destination, options = {})
 		li_classes = []
 		li_classes << "active" if options.delete(:active) == true
+		li_classes << "disabled" if options.delete(:disabled) == true
 
 		content_tag("li", link_to(text, destination, options), class: li_classes.join(" "))
 	end
