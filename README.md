@@ -23,7 +23,7 @@ By default, the following "recipes" are applied to the new Rails application:
 1. **bootstrap**: use the Twitter Bootstrap framework (via the *less-bootstrap-rails* gem), update the Application layout to be more Bootstrap friendly, and include a BootstrapHelpers module to include helper methods for common Bootstrap components;
 1. **font-awesome**: use the Font Awesome toolkit (via the *font-awesome-rails* gem);
 1. **simple_form**: use Simple Form (version ~> 3.1.0.rc0 for better Bootstrap support) with the optional *country_select* gem;
-1. **devise**: use Devise for authentication, and customize the Devise views;
+1. **devise**: use Devise for authentication, customize the Devise views and set up Devise/RSpec integration;
 1. **heroku**: set up prerequisites for deployment to Heroku;
 1. **unicorn**: use the Unicorn web server;
 1. **better_errors**: use Better Errors in development (along with the optional *binding_of_caller* gem);
@@ -86,6 +86,8 @@ The site owner's name will be linked to the specified URL within the application
 Specify the source for the *mkrails.rb* Ruby script and associated assets. This may be either a remote URL (such as the GitHub URL used by default), or a local path (useful if you have cloned the GitHub repository and customised the **mkrails** scripts, recipes or templates).
 
 ## Version History
+
+**1.1.1** *(11/10/2014)*: Improve RSpec/Devise integration
 
 **1.1.0** *(26/09/2014)*: Improve handling of meta data, social tags and header content
 
