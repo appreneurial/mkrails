@@ -12,3 +12,4 @@
 - app/views/devise/shared/_links.erb
 + app/views/devise/shared/_links.haml
 + config/routes.rb
++ spec/support/devise_support.rb
