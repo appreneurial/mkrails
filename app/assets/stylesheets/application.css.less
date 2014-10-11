@@ -27,6 +27,32 @@ body {
 	padding-bottom: @navbar-height + @navbar-margin-bottom;
 }
 
+.sidebar {
+	position: fixed;
+	top: @navbar-height;
+	bottom: @navbar-height;
+	left: 0;
+	z-index: 1000;
+	display: block;
+	padding: @navbar-padding-horizontal;
+	overflow-x: hidden;
+	overflow-y: auto;
+	background-color: @navbar-default-bg;
+	border-right: 1px solid @navbar-default-border;
+}
+
+.sidebar ul {
+	margin-right: 0 - @navbar-padding-horizontal - 1;
+	margin-bottom: @navbar-padding-horizontal;
+	margin-left: 0 - @navbar-padding-horizontal;
+}
+
+.sidebar ul li a {
+	padding-right: @navbar-padding-horizontal;
+	padding-left: @navbar-padding-horizontal;
+	border-radius: 0;
+}
+
 .alert:first-of-type {
 	margin-top: @navbar-margin-bottom;
 }
@@ -49,7 +75,6 @@ footer {
 	height: @navbar-height;
 	border-top: 1px solid @navbar-default-border;
 	padding-top: @navbar-padding-vertical;
-	background-color: @navbar-default-bg;
 	color: @navbar-default-color;
 }
 
@@ -60,5 +85,4 @@ footer a {
 footer a:hover,
 footer a:focus {
 	color: @navbar-default-link-hover-color;
-	background-color: @navbar-default-link-hover-bg;
 }

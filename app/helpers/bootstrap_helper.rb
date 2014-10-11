@@ -102,6 +102,7 @@ module BootstrapHelper
 		options[:pull].each do |key, value|
 			div_classes << "col-#{key.to_s}-pull-#{value}"
 		end if options[:pull]
+		div_classes << options[:class] if options[:class]
 
 		content_tag("div", nil, class: div_classes.join(" ")) do
 			capture(&block) if block_given?

@@ -21,6 +21,14 @@ module ApplicationHelper
 		content_for(:header_buttons, capture(&buttons)) if block_given?
 	end
 
+	def sidebar(&content)
+		content_for(:sidebar, capture(&content)) if block_given?
+	end
+
+	def content(&content)
+		content_for(:content, capture(&content)) if block_given?
+	end
+
 	# Deprecated Methods
 
 	def set_title(*title_parts)

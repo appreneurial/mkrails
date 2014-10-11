@@ -13,8 +13,15 @@
 	%body{class: page_class}
 		= render "layouts/nav"
 		.container-fluid
-			= render "layouts/header"
-			= yield
+			= bootstrap_row do
+				- sidebar_width = content_for?(:sidebar) ? 2 : 0
+				- content_width = 12 - sidebar_width
+				= bootstrap_column(size: {md: content_width}, offset: {md: sidebar_width}) do
+					= render "layouts/header"
+					= content_for?(:content) ? yield(:content) : yield
+				- if content_for?(:sidebar)
+					= bootstrap_column(size: {md: sidebar_width}, class: "sidebar") do
+						= yield(:sidebar)
 		= render "layouts/footer"
 		/ Javascript
 		= javascript_include_tag 'application', 'data-turbolinks-track' => true
