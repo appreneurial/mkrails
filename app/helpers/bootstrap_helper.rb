@@ -101,4 +101,18 @@ module BootstrapHelper
 			capture(&block) if block_given?
 		end
 	end
+
+	def bootstrap_table(options = {}, &block)
+		table_classes = ["table"]
+		table_classes << "table-striped" if options[:striped] == true
+		table_classes << "table-bordered" if options[:bordered] == true
+		table_classes << "table-hover" if options[:hover] == true
+		table_classes << "table-condensed" if options[:condensed] == true
+
+		content_tag("div", nil, class: "table-responsive") do
+			content_tag("table", nil, class: table_classes.join(" ")) do
+				capture(&block) if block_given?
+			end
+		end
+	end
 end
