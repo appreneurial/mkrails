@@ -30,6 +30,28 @@ module BootstrapHelper
 		alerts.join("\n").html_safe
 	end
 
+	def bootstrap_nav(options = {}, &block)
+		ul_classes = ["nav"]
+		ul_classes << "nav-tabs" if options[:tabs] == true
+		ul_classes << "nav-pills" if options[:pills] == true
+		ul_classes << "nav-stacked" if options[:stacked] == true
+		ul_classes << "nav-justified" if options[:justified] == true
+		ul_classes << "navbar-nav" if options[:navbar] == true
+		ul_classes << (options[:navbar] == true ? "navbar-#{options[:pull].to_s}" : "pull-#{options[:pull].to_s}") if options[:pull]
+
+		content_tag("ul", nil, class: ul_classes.join(" ")) do
+			capture(&block) if block_given?
+		end
+	end
+
+	def bootstrap_nav_link(text, destination, options = {})
+		li_classes = []
+		li_classes << "active" if options.delete(:active) == true
+		li_classes << "disabled" if options.delete(:disabled) == true
+
+		content_tag("li", link_to(text, destination, options), class: li_classes.join(" "))
+	end
+
 	def bootstrap_navbar(options = {}, &block)
 		nav_classes = ["navbar"]
 		nav_classes << (options[:inverse] == true ? "navbar-inverse" : "navbar-default")
@@ -52,22 +74,6 @@ module BootstrapHelper
 				end
 			end
 		end
-	end
-
-	def bootstrap_navbar_nav(options = {}, &block)
-		ul_classes = ["nav", "navbar-nav"]
-		ul_classes << "navbar-#{options[:pull].to_s}" if options[:pull]
-
-		content_tag("ul", nil, class: ul_classes.join(" ")) do
-			capture(&block) if block_given?
-		end
-	end
-
-	def bootstrap_nav_link(text, destination, options = {})
-		li_classes = []
-		li_classes << "active" if options.delete(:active) == true
-
-		content_tag("li", link_to(text, destination, options), class: li_classes.join(" "))
 	end
 
 	def bootstrap_page_header(&block)
@@ -96,8 +102,32 @@ module BootstrapHelper
 		options[:pull].each do |key, value|
 			div_classes << "col-#{key.to_s}-pull-#{value}"
 		end if options[:pull]
+		div_classes << options[:class] if options[:class]
 
 		content_tag("div", nil, class: div_classes.join(" ")) do
+			capture(&block) if block_given?
+		end
+	end
+
+	def bootstrap_table(options = {}, &block)
+		table_classes = ["table"]
+		table_classes << "table-striped" if options[:striped] == true
+		table_classes << "table-bordered" if options[:bordered] == true
+		table_classes << "table-hover" if options[:hover] == true
+		table_classes << "table-condensed" if options[:condensed] == true
+
+		content_tag("div", nil, class: "table-responsive") do
+			content_tag("table", nil, class: table_classes.join(" ")) do
+				capture(&block) if block_given?
+			end
+		end
+	end
+
+	# Deprecated Functions
+
+	def bootstrap_navbar_nav(options = {}, &block)
+		options << {navbar: true}
+		bootstrap_nav(options) do
 			capture(&block) if block_given?
 		end
 	end

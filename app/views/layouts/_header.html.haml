@@ -5,3 +5,5 @@
 			= yield(:header_title)
 			- if content_for?(:header_subtitle)
 				%small= yield(:header_subtitle)
+			- if content_for?(:header_buttons)
+				.pull-right= yield(:header_buttons)

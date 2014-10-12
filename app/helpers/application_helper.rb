@@ -15,9 +15,18 @@ module ApplicationHelper
 		content_for(:twitter_card, options[:twitter_card]) if options[:twitter_card]
 	end
 
-	def set_header_content(options = {})
+	def set_header_content(options = {}, &buttons)
 		content_for(:header_title, options[:title]) if options[:title]
 		content_for(:header_subtitle, options[:subtitle]) if options[:subtitle]
+		content_for(:header_buttons, capture(&buttons)) if block_given?
+	end
+
+	def sidebar(&content)
+		content_for(:sidebar, capture(&content)) if block_given?
+	end
+
+	def content(&content)
+		content_for(:content, capture(&content)) if block_given?
 	end
 
 	# Deprecated Methods
