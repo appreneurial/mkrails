@@ -87,6 +87,8 @@ Specify the source for the *mkrails.rb* Ruby script and associated assets. This 
 
 ## Version History
 
+**1.3.0** *(12/10/2014)*: Improved handling of content within layouts and integration with RSpec
+
 **1.2.1** *(12/10/2014)*: Fix parameter name mismatches in FeatureExpectations module
 
 **1.2.0** *(12/10/2014)*: Improved Bootstrap support, RSpec/Capybara integration, and layout features
