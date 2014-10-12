@@ -87,6 +87,8 @@ Specify the source for the *mkrails.rb* Ruby script and associated assets. This 
 
 ## Version History
 
+**1.2.0** *(12/10/2014)*: Improved Bootstrap support, RSpec/Capybara integration, and layout features
+
 **1.1.1** *(11/10/2014)*: Improve RSpec/Devise integration
 
 **1.1.0** *(26/09/2014)*: Improve handling of meta data, social tags and header content
