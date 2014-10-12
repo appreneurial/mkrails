@@ -21,12 +21,12 @@ module ApplicationHelper
 		content_for(:header_buttons, capture(&buttons)) if block_given?
 	end
 
-	def sidebar(&content)
-		content_for(:sidebar, capture(&content)) if block_given?
+	def set_sidebar_content(&content)
+		content_for(:sidebar_content, capture(&content)) if block_given?
 	end
 
-	def content(&content)
-		content_for(:content, capture(&content)) if block_given?
+	def set_main_content(&content)
+		content_for(:main_content, capture(&content)) if block_given?
 	end
 
 	# Deprecated Methods
@@ -52,5 +52,17 @@ module ApplicationHelper
 
 	def set_publisher(publisher)
 		set_meta_data(publisher: publisher) unless publisher.blank?
+	end
+
+	def sidebar(&content)
+		set_sidebar_content do
+			capture(&content)
+		end
+	end
+
+	def content(&content)
+		set_main_content do
+			capture(&content)
+		end
 	end
 end
