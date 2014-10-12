@@ -91,12 +91,35 @@ module FeatureExpectations
 		expect(page).to_not have_field(locator, options)
 	end
 
+	def expect_header_content(options = {})
+		within("div.page-header") do
+			within("h1") do
+				expect_content(options[:title]) if options[:title]
+
+				within("small") do
+					expect_content(options[:subtitle]) if options[:subtitle]
+				end
+
+				within("div.pull-right") do
+					expect_content(options[:buttons]) if options[:buttons]
+				end
+			end
+		end
+	end
+
 	def expect_link(locator, options = {})
 		expect(page).to have_link(locator, options)
 	end
 
 	def expect_no_link(locator, options = {})
 		expect(page).to_not have_link(locator, options)
+	end
+
+	def expect_meta_data(options = {})
+		expect_title(options[:title]) if options[:title]
+		expect_meta_tag(name: "description", content: options[:description]) if options[:description]
+		expect_css("link[rel='author'][href='https://plus.google.com/#{options[:author]}']", visible: false) if options[:author]
+		expect_css("link[rel='publisher'][href='https://plus.google.com/#{options[:publisher]}']", visible: false) if options[:publisher]
 	end
 
 	def expect_meta_tag(options = {})
@@ -139,6 +162,31 @@ module FeatureExpectations
 
 	def expect_no_selector(*args)
 		expect(page).to_not have_selector(args)
+	end
+
+	def expect_social_tags(options = {})
+		if options[:title]
+			expect_meta_tag(property: "og:title", content: options[:title])
+			expect_meta_tag(name: "twitter:title", content: options[:title])
+		end
+
+		if options[:description]
+			expect_meta_tag(property: "og:description", content: options[:description])
+			expect_meta_tag(name: "twitter:description", content: options[:description])
+		end
+
+		if options[:image]
+			expect_meta_tag(property: "og:image", content: options[:image])
+			expect_meta_tag(name: "twitter:image", content: options[:image])
+		end
+
+		if options[:url]
+			expect_meta_tag(property: "og:url", content: options[:url])
+			expect_meta_tag(name: "twitter:url", content: options[:url])
+		end
+
+		expect_meta_tag(property: "og:type", content: options[:og_type]) if options[:og_type]
+		expect_meta_tag(name: "twitter:card", content: options[:twitter_card]) if options[:twitter_card]
 	end
 
 	def expect_table(locator, options = {})

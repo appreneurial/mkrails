@@ -1,9 +1,7 @@
 = bootstrap_flash(dismissible: true)
-- if content_for?(:header_title)
+- if content_for?(:header_title) || content_for?(:header_subtitle) || content_for?(:header_buttons)
 	= bootstrap_page_header do
 		%h1
-			= yield(:header_title)
-			- if content_for?(:header_subtitle)
-				%small= yield(:header_subtitle)
-			- if content_for?(:header_buttons)
-				.pull-right= yield(:header_buttons)
+			= yield(:header_title) if content_for?(:header_title)
+			%small= yield(:header_subtitle) if content_for?(:header_subtitle)
+			.pull-right= yield(:header_buttons) if content_for?(:header_buttons)
