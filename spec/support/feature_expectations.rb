@@ -92,11 +92,11 @@ module FeatureExpectations
 	end
 
 	def expect_link(locator, options = {})
-		expect(page).to have_link(selector, options)
+		expect(page).to have_link(locator, options)
 	end
 
 	def expect_no_link(locator, options = {})
-		expect(page).to_not have_link(selector, options)
+		expect(page).to_not have_link(locator, options)
 	end
 
 	def expect_meta_tag(options = {})
