@@ -30,6 +30,19 @@ module BootstrapHelper
 		alerts.join("\n").html_safe
 	end
 
+	def bootstrap_link_button(text, url, options = {})
+		link_classes = ["btn"]
+		link_classes << (options[:style] ? "btn-#{options.delete(:style).to_s}" : "btn-default")
+		link_classes << "btn-#{options.delete(:size).to_s}" if options[:size]
+		link_classes << "btn-block" if options.delete(:block) == true
+		link_classes << "active" if options.delete(:active) == true
+		link_classes << "disabled" if options.delete(:disabled) == true
+		link_classes << options.delete(:class) if options[:class]
+		options[:class] = link_classes.join(" ")
+
+		link_to(text, url, options)
+	end
+
 	def bootstrap_nav(options = {}, &block)
 		ul_classes = ["nav"]
 		ul_classes << "nav-tabs" if options[:tabs] == true
