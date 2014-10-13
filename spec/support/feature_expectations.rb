@@ -15,11 +15,11 @@ module FeatureExpectations
 		expect(page).to_not have_checked_field(locator, options)
 	end
 
-	def expect_content(*args)
+	def expect_content(args)
 		expect(page).to have_content(args)
 	end
 
-	def expect_no_content(*args)
+	def expect_no_content(args)
 		expect(page).to_not have_content(args)
 	end
 
@@ -156,11 +156,11 @@ module FeatureExpectations
 		expect(page).to_not have_select(locator, options)
 	end
 
-	def expect_selector(*args)
+	def expect_selector(args)
 		expect(page).to have_selector(args)
 	end
 
-	def expect_no_selector(*args)
+	def expect_no_selector(args)
 		expect(page).to_not have_selector(args)
 	end
 
@@ -197,11 +197,11 @@ module FeatureExpectations
 		expect(page).to_not have_table(locator, options)
 	end
 
-	def expect_text(*args)
+	def expect_text(args)
 		expect(page).to have_text(args)
 	end
 
-	def expect_no_text(*args)
+	def expect_no_text(args)
 		expect(page).to_not have_text(args)
 	end
 
