@@ -87,6 +87,8 @@ Specify the source for the *mkrails.rb* Ruby script and associated assets. This 
 
 ## Version History
 
+**1.4.1** *(15/10/2014)*: Suppress RSpec Backtrace
+
 **1.4.0** *(13/10/2014)*: Improved Bootstrap support
 
 **1.3.1** *(13/10/2014)*: Fix parameter arrays in FeatureExpectations module
