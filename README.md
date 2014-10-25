@@ -87,6 +87,8 @@ Specify the source for the *mkrails.rb* Ruby script and associated assets. This 
 
 ## Version History
 
+**1.4.2** *(25/10/2014)*: Fix sidebar position bug
+
 **1.4.1** *(15/10/2014)*: Suppress RSpec Backtrace
 
 **1.4.0** *(13/10/2014)*: Improved Bootstrap support
