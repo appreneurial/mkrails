@@ -87,6 +87,8 @@ Specify the source for the *mkrails.rb* Ruby script and associated assets. This 
 
 ## Version History
 
+**1.5.0** *(28/10/2014)*: Add FontAwesomeHelper as well as other helper methods to support standardised styling
+
 **1.4.2** *(25/10/2014)*: Fix sidebar position bug
 
 **1.4.1** *(15/10/2014)*: Suppress RSpec Backtrace
