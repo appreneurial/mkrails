@@ -29,6 +29,10 @@ module ApplicationHelper
 		content_for(:main_content, capture(&content)) if block_given?
 	end
 
+	def checkmark(value)
+		value ? fa("check", class: "text-success", fw: true) : fa("times", class: "text-danger", fw: true)
+	end
+
 	# Deprecated Methods
 
 	def set_title(*title_parts)
