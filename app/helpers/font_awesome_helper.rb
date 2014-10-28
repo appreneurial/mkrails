@@ -13,7 +13,7 @@ module FontAwesomeHelper
 		i_classes << options.delete(:class) if options[:class]
 
 		content_tag("i", nil, class: i_classes.join(" ")) +
-		(capture(&content) if block_given?)
+		((" " + capture(&content)) if block_given?)
 	end
 
 	def fa_ul(options = {}, &content)
