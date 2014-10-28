@@ -29,6 +29,44 @@ module ApplicationHelper
 		content_for(:main_content, capture(&content)) if block_given?
 	end
 
+	def checkmark(value)
+		value ? fa("check", class: "text-success", fw: true) : fa("times", class: "text-danger", fw: true)
+	end
+
+	def new_button(type, url, options = {})
+		options[:style] ||= :primary
+		options[:size] ||= :lg
+
+		bootstrap_link_button(fa("plus") { "New #{type.to_s.titleize}" }, url, options)
+	end
+
+	def edit_button(type, url, options = {})
+		options[:style] ||= :primary
+
+		bootstrap_link_button(fa("edit") { "Edit #{type.to_s.titleize}" }, url, options)
+	end
+
+	def delete_button(type, identifier, url, options = {})
+		options[:style] ||= :danger
+		options[:method] ||= :delete
+		options[:data] ||= {confirm: "Are you sure you want to delete '#{identifier}'?" }
+
+		bootstrap_link_button(fa("trash-o") { "Delete #{type.to_s.titleize}" }, url, options)
+	end
+
+	def submit_button(form, options = {})
+		options[:style] ||= :success
+		options[:size] || :lg
+
+		form.button :submit, class: "btn btn-#{options[:style].to_s} btn-#{options[:size].to_s}"
+	end
+
+	def cancel_button(url, options = {})
+		options[:size] ||= :lg
+		
+		bootstrap_link_button("Cancel", url, options)
+	end
+
 	# Deprecated Methods
 
 	def set_title(*title_parts)
